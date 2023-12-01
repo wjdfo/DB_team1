@@ -1,13 +1,13 @@
 <%@ page import="java.sql.*, java.io.*, java.util.*" %>
 <%@ page import="com.db.DBManager" %>
-<%@ page language="java" contentType="text/html; charset=EUC-KR" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>¿¹¸Å³»¿ª º¸±â ÆäÀÌÁö</h2>
+	<h2>ì˜ˆë§¤ë‚´ì—­ ë³´ê¸° í˜ì´ì§€</h2>
 </body>
 </html>
