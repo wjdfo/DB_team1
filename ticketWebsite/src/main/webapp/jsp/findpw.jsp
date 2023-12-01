@@ -8,6 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>회원정보 수정 페이지입니다</h2>
+	<h2>find password page</h2>
 </body>
 </html>

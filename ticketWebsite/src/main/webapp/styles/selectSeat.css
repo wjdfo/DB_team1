@@ -2,7 +2,7 @@
 .seat-selection {
             display: grid;
             grid-template-columns: repeat(10, 40px); /* 10 columns of 40px each */
-            gap: 5px;
+            gap: 15px;
             justify-content: center;
             margin-top: 20px;
         }

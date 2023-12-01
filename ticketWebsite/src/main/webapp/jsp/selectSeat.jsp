@@ -24,14 +24,6 @@
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-            } finally {
-                // Close resources
-                try {
-                    if (stmt != null) stmt.close();
-                    if (conn != null) conn.close();
-                } catch (SQLException ex) {
-                    ex.printStackTrace();
-                }
             }
             return availableSeats;
         }
@@ -41,36 +33,60 @@
         int concertID = Integer.parseInt(request.getParameter("concertID"));
         // Retrieve available seats for the selected concert
         List<Integer> availableSeats = getAvailableSeats(concertID);
+        Connection conn = null;
+        Statement stmt = null;
+        String concertName = "";
+        int concertPrice = -1;
+        String place = "";
+        java.util.Date con_date = null;
+        try {
+            conn = DBManager.getConnection();
+            stmt = conn.createStatement();
+            try {
+            	//Retrieve concert info
+                String getConcertInfoQuery = "SELECT Concert_Name, Price, Con_date, Place FROM CONCERT WHERE Concert_ID = " + concertID;
+                ResultSet concertInfoResult = stmt.executeQuery(getConcertInfoQuery);
+
+                if (concertInfoResult.next()) {
+                    concertName = concertInfoResult.getString("Concert_Name");
+                    concertPrice = concertInfoResult.getInt("Price");
+                    con_date = concertInfoResult.getDate("Con_date");
+                    place = concertInfoResult.getString("Place");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (stmt != null) stmt.close();
+                if (conn != null) conn.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
     %>
 
-    <%-- HTML --%>
+    <!-- HTML -->
+    <h2>Ticket Reservation</h2>
+    <p>Concert Name: <%= concertName %></p>
+    <p>Concert Date: <%= con_date %></p>
+    <h3>Available seat:</h3>
     <div class="seat-selection">
         <% 
             int totalSeats = 50;
             for (int seat = 1; seat <= totalSeats; seat++) {
                 boolean isAvailable = availableSeats.contains(seat);
                 String seatClass = isAvailable ? "available" : "unavailable";
-        %>
-        <div class="seat <%= seatClass %>">
-            <%= seat %>
-        </div>
-        <% 
+	        %>
+		        <div class="seat <%= seatClass %>">
+		            <%= seat %>
+		        </div>
+	        <% 
             }
         %>
     </div>
 
-    <%-- Payment method selection section --%>
-    <% 
-        // Java code for payment method selection and database updates
-        // This involves handling user input for payment and updating the database with the selected seat and payment method
-        // You'll need to implement this section based on your provided logic
-        // ...
-    %>
-
-    <script>
-        // JavaScript code for seat selection interaction (if needed)
-        // This may include handling user click on seats, displaying payment options, etc.
-        // ...
-    </script>
 </body>
 </html>
