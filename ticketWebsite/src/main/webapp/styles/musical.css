@@ -1,11 +1,16 @@
 @charset "EUC-KR";
-/* Apply styles to the concert information */
 h2 {
     text-align: center;
     font-size: 36px;
     color: #333; 
     margin-top: 20px;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+h3 {
+    font-size: 20px;
+    color: #333;
+    margin-left: 20%;
+    margin-bottom: 20px;
 }
 .concert-info {
     display: flex;

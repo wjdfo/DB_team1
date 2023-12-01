@@ -49,6 +49,9 @@
                     ex.printStackTrace();
                 }
             }
+            if (request.getParameter("find_password") != null) {
+                response.sendRedirect("findpw.jsp");
+            }
         %>
 
         <form id="loginForm" class="login-form" method="post">
@@ -62,6 +65,8 @@
                 <input type="password" id="password" name="password" required>
             </div>
             <button type="submit">Login</button>
+            <h5>Forgot Password?</h5>
+            <a href="<%=request.getRequestURI()%>?find_password=true" class="find-password">Find Password</a>
             <p id="error" class="error-message"></p>
         </form>
     </div>

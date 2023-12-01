@@ -5,11 +5,12 @@
 <html>
 <head>
 	<meta charset="EUC-KR">
-    <title>Musical Ticketing</title>
+    <title>Musical Event Reservation</title>
     <link rel="stylesheet" href="../styles/musical.css">
 </head>
 <body>
-	<h2>Musical Ticketing</h2>
+	<h2>Musical Event Reservation</h2>
+	<h3 style="margin-left: 20%;">Upcoming Musical Events</h3>
 	<div class="concerts-container">
 	    <%
 	        Connection conn = null;
