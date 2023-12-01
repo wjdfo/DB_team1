@@ -1,0 +1,83 @@
+@charset "EUC-KR";
+/* Apply styles to the concert information */
+h2 {
+    text-align: center;
+    font-size: 36px;
+    color: #333; 
+    margin-top: 20px;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+.concert-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 20px;
+    border: 1px solid #ccc;
+    width: 50%;
+    height: 60px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    background-color: #f2f2f2;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+    .concert-details {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .concert-details > div {
+        display: flex;
+    }
+
+    .concert-date {
+        width: 70px;
+        margin-left: 12px;
+        color: rgb(255, 0, 128);
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .concert-date,
+    .concertName {
+        flex: 1;
+    }
+
+    .concertName {
+        color: rgb(0, 0, 160);
+         font-size: 20px;
+        font-weight: bold;
+    }
+
+    .ticket-time,
+    .place {
+        width: 100%;
+        font-size: 12px;
+    }
+
+    .buy-ticket {
+        text-align: right;
+    }
+
+    .buy-ticket a {
+        font-family: "Open Sans", sans-serif;
+		  font-size: 12px;
+		  letter-spacing: 2px;
+		  text-decoration: none;
+		  text-transform: uppercase;
+		  color: #000;
+		  cursor: pointer;
+		  border: 3px solid;
+		  padding: 0.25em 0.5em;
+		  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+		  position: relative;
+		  user-select: none;
+		  -webkit-user-select: none;
+		  touch-action: manipulation;
+    }
+
+    .buy-ticket a:hover {
+        background-color: #45a049;
+    }
