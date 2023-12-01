@@ -3,10 +3,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="EUC-KR">
-	<title>Ticket Reservation</title>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
 </head>
 <body>
-	<h1>Welcome to the Reservation Page!</h1>
+	<h2>회원정보 수정 페이지입니다</h2>
 </body>
 </html>

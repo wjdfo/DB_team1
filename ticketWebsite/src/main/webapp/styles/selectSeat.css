@@ -1,0 +1,33 @@
+@charset "EUC-KR";
+.seat-selection {
+            display: grid;
+            grid-template-columns: repeat(10, 40px); /* 10 columns of 40px each */
+            gap: 5px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        /* Style for each seat */
+        .seat {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Style for available seats (gray) */
+        .available {
+            background-color: #ccc;
+            color: #333;
+        }
+
+        /* Style for unavailable seats (green) */
+        .unavailable {
+            background-color: #4CAF50;
+            color: #fff;
+            cursor: not-allowed;
+        }

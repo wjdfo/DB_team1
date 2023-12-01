@@ -1,4 +1,5 @@
 <%@ page import="java.sql.*, java.io.*, java.util.*" %>
+<%@ page import="com.db.DBManager" %>
 <%@ page language="java" contentType="text/html; charset=EUC-KR" %>
 <!DOCTYPE html>
 <html>
@@ -10,43 +11,42 @@
 <body>
     <div class="login-container">
         <%
-            if (request.getMethod().equalsIgnoreCase("post")) {
-                String id = request.getParameter("id");
-                String password = request.getParameter("password");
-                Connection conn = null;
-                PreparedStatement pstmt = null;
-                ResultSet rs = null;
+            Connection conn = null;
+            PreparedStatement pstmt = null;
+            ResultSet rs = null;
 
-                try {
-                    String jdbcURL = "jdbc:oracle:thin:@localhost:1521:orcl";
-                    String dbUser = "concertTicket";
-                    String dbPassword = "concertTicket";
+            try {
+                if (request.getMethod().equalsIgnoreCase("post")) {
+                    String id = request.getParameter("id");
+                    String password = request.getParameter("password");
 
-                    Class.forName("oracle.jdbc.driver.OracleDriver");
-                    conn = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
+                    conn = DBManager.getConnection();
 
                     // Creating the SQL query to check login credentials
-                    String sql = "SELECT * FROM CUSTOMER WHERE customer_id =? AND pw=?";
+                    String sql = "SELECT * FROM CUSTOMER WHERE customer_id = ? AND pw = ?";
                     pstmt = conn.prepareStatement(sql);
                     pstmt.setString(1, id);
                     pstmt.setString(2, password);
                     rs = pstmt.executeQuery();
 
                     if (rs.next()) {
-                        // Login successful -> go on ticketing.jsp
+                        // Login successful -> go to mypage.html
                         out.println("<h2>Login Successful!</h2>");
-                        response.sendRedirect("ticketing.jsp");
+                        response.sendRedirect("../mypage.html");
                     } else {
                         // Login failed
                         out.println("<h2>Login Failed. Please input again.</h2>");
                     }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                } finally {
-                	// Closing the resources
-                	rs.close();
-                	pstmt.close();
-                	conn.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+            	try {
+                    if (rs != null) rs.close();
+                    if (pstmt != null) pstmt.close();
+                    if (conn != null) conn.close();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
                 }
             }
         %>
