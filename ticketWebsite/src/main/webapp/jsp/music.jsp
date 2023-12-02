@@ -5,12 +5,12 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-    <title>Musical Event Reservation</title>
+    <title>Music Event Reservation</title>
     <link rel="stylesheet" href="../styles/musical.css">
 </head>
 <body>
-	<h2>뮤직컬 공연 티켓 예약</h2>
-	<h3 style="margin-left: 20%;">다가오는 뮤지컬 공연들</h3>
+	<h2>뮤직 공연 티켓 예약</h2>
+	<h3 style="margin-left: 20%;">다가오는 뮤직 공연들</h3>
 	<div class="concerts-container">
 	    <%
 	        Connection conn = null;
@@ -18,7 +18,7 @@
 	        ResultSet rs = null;
 	        try {
 	            conn = DBManager.getConnection();
-	            String query = "SELECT Concert_ID, Concert_Name, Con_date, Tic_start, Tic_end, Place, Price FROM CONCERT WHERE genre='musical'";
+	            String query = "SELECT Concert_ID, Concert_Name, Con_date, Tic_start, Tic_end, Place, Price FROM CONCERT WHERE genre='music'";
 	            pstmt = conn.prepareStatement(query);
 	            rs = pstmt.executeQuery();
 	            while (rs.next()) {

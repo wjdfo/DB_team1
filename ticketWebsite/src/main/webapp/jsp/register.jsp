@@ -4,11 +4,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Register</title>
+	<meta charset="UTF-8">
+	<title>Register</title>
+	<link rel="stylesheet" href="../styles/editProfile.css">
 </head>
 <body>
-   <h2> 회원가입 메뉴</h2>
+   <h2> 회원가입</h2>
    <br/>
      <form action="register_check.jsp" method="post" id="f">
 		<input type="text" name="id" id="id" placeholder="아이디(1~9999 숫자)"><br>

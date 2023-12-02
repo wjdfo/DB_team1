@@ -4,11 +4,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>editProfile</title>
+	<meta charset="UTF-8">
+	<title>Register</title>
+	<link rel="stylesheet" href="../styles/editProfile.css">
 </head>
 <body>
-   <h2> 변경하실 회원정보들을 입력하세요.</h2>
+   <h2> 회원정보 수정</h2>
    <br/>
      <form action="editProfile_check.jsp" method="post">
 		<input type="password" name="pw" id="pw" placeholder="비밀번호"><br>
