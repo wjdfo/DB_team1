@@ -33,6 +33,9 @@
                         // Login successful -> go to mypage.html
                         out.println("<h2>Login Successful!</h2>");
                         response.sendRedirect("../mypage.html");
+                        int loginId = Integer.parseInt(id);
+                        session.setAttribute("login_id", loginId); // Store login_id in session and send to selectSeat.jsp
+                        response.sendRedirect("selectSeat.jsp");
                     } else {
                         // Login failed
                         out.println("<h2>Login Failed. Please input again.</h2>");
