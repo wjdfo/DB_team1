@@ -32,12 +32,20 @@
                     rs = pstmt.executeQuery();
 
                     if (rs.next()) {
-                        // Login successful -> go to mypage.html
-                        out.println("<h2>Login Successful!</h2>");
-                        response.sendRedirect("../mypage.html");
-                        int loginId = Integer.parseInt(id);
-                        session.setAttribute("login_id", loginId); // Store login_id in session and send to selectSeat.jsp
-                        response.sendRedirect("selectSeat.jsp");
+                    	//check blacklist
+                    	String checkBlacklistSql = "SELECT Black_start FROM blacklist WHERE customer_id = ?";
+                        pstmt = conn.prepareStatement(checkBlacklistSql);
+                        pstmt.setString(1, id);
+                        ResultSet blacklistResult = pstmt.executeQuery();
+                        if (blacklistResult.next()) {
+                        	response.sendRedirect("blacklist.jsp");
+                        }
+                        else{
+                        	// Login successful -> go to mypage.html
+	                        out.println("<h2>Login Successful!</h2>");
+	                        response.sendRedirect("../mypage.html");
+	                        response.sendRedirect("selectSeat.jsp");
+                        }
                     } else {
                         // Login failed
                         out.println("<h2>Login Failed. Please input again.</h2>");

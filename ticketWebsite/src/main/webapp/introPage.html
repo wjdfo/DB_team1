@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="EUC-KR">
+  <title>Musical Events</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      padding-top: 20px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 80%;
+    }
+
+    td {
+      padding: 10px;
+      text-align: center;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+    .login-button {
+      display: block;
+      width: 150px;
+      padding: 10px;
+      text-align: center;
+      margin: 20px auto;
+      background-color: #3498db;
+      color: #fff;
+      text-decoration: none;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+    <h2>Master Ticket Booking에 오신것을 환영합니다!</h2>
+	<h2>티켓을 예약하려면 로그인하세요.</h2>
+	
+	<!-- Login button -->
+  	<a href="jsp/login.jsp" class="login-button">로그인</a>
+
+    <table>
+      <tr>
+        <td><img src="images/concert1.png" alt="Concert Image 1"></td>
+        <td><img src="images/concert2.png" alt="Concert Image 2"></td>
+        <td><img src="images/musical3.png" alt="Concert Image 3"></td>
+      </tr>
+      <tr>
+        <td><img src="images/musical4.png" alt="Concert Image 4"></td>
+        <td><img src="images/musical5.png" alt="Concert Image 5"></td>
+        <td><img src="images/sports.png" alt="Concert Image 6"></td>
+      </tr>
+    </table>
+    
+</body>
+</html>

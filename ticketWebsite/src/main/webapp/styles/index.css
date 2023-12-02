@@ -76,8 +76,7 @@ a {
 .main-event,
 .about-event {
   background:
-    linear-gradient(to bottom, rgba(73, 70, 70, 0.9), rgba(245, 243, 243, 0.966)),
-    url('./images/Music-Live-Bands-in-Lagos.jpg') no-repeat center center/cover;
+    linear-gradient(to bottom, rgba(73, 70, 70, 0.9), rgba(245, 243, 243, 0.966));
 }
 
 .container {
@@ -90,8 +89,8 @@ a {
 }
 
 .main-event h4 {
-  color: #ec5242;
-  font-size: 1.5rem;
+  color: rgb(255, 255, 255);
+  font-size: 2.2rem;
   margin: 0 auto;
 }
 
@@ -133,12 +132,19 @@ a {
   line-height: 1.2;
   font-size: 1.2rem;
 }
+.side-program1 {
+  margin-top: 2em;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 5px;
+}
 
 .side-attraction { background-color: black; }
 
 .side-attraction h2 {
   color: white;
   margin: 0 auto;
+  font-size: 2rem;
 }
 
 hr {
@@ -555,12 +561,6 @@ input[type="radio"] { margin: auto; }
     border: 0;
   }
 
-  .main-event h4,
-  .main-event h2,
-  .main-event h3 {
-    font-size: 1rem;
-    text-align: center;
-  }
 
   .main-event h1 { font-size: 2rem; }
 
