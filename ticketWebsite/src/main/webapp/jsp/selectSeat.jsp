@@ -1,10 +1,10 @@
 <%@ page import="java.sql.*, java.io.*, java.util.*" %>
 <%@ page import="com.db.DBManager" %>
-<%@ page language="java" contentType="text/html; charset=EUC-KR" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="EUC-KR">
+    <meta charset="UTF-8">
     <title>Ticket Reservation</title>
     <link rel="stylesheet" href="../styles/selectSeat.css">
 </head>

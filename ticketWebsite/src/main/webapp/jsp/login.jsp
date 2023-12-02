@@ -1,10 +1,10 @@
 <%@ page import="java.sql.*, java.io.*, java.util.*" %>
 <%@ page import="com.db.DBManager" %>
-<%@ page language="java" contentType="text/html; charset=EUC-KR" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="EUC-KR">
+    <meta charset="UTF-8">
     <title>Login</title>
     <link rel="stylesheet" href="../styles/login.css">
 </head>
@@ -19,6 +19,8 @@
                 if (request.getMethod().equalsIgnoreCase("post")) {
                     String id = request.getParameter("id");
                     String password = request.getParameter("password");
+                    
+                    session.setAttribute("login_id", id); // 다른 곳에서도 login한 id 정보를 쓰기 위해 session에 넣었습니다.
 
                     conn = DBManager.getConnection();
 
