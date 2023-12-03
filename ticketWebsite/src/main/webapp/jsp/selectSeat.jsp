@@ -36,7 +36,7 @@
         }
     %>
 
-    <%  
+    <%
         int concertID = -1;
         String concertIDstr = request.getParameter("concertID");
         if (concertIDstr != null && !concertIDstr.isEmpty()) {
