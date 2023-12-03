@@ -4,8 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>History</title>
+	<link rel="stylesheet" href="../styles/history.css">
 </head>
 <body>
 	<h2>예매내역</h2>
@@ -55,8 +56,6 @@
 			}
 			
 		%>
-		</br>
-		</br>
 		<h4>문의 사항은 admin@admin.com으로 문의해주세요.</h4>
 		
 		<div class = "back-to-main">

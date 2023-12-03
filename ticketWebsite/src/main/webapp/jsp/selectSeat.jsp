@@ -27,7 +27,7 @@
                 String getAvailableSeatsQuery = "SELECT Seat_num FROM SEAT WHERE Concert_ID = " + concertID + " AND Available = 'O'";
                 ResultSet availableSeatsResult = stmt.executeQuery(getAvailableSeatsQuery);
                 while (availableSeatsResult.next()) {
-                    availableSeats.add(availableSeatsResult.getInt("Seat_num"));
+                    availableSeats.add(availableSeatsResult.getInt(1));
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -63,10 +63,10 @@
                 ResultSet concertInfoResult = stmt.executeQuery(getConcertInfoQuery);
 
                 if (concertInfoResult.next()) {
-                    concertName = concertInfoResult.getString("Concert_Name");
-                    concertPrice = concertInfoResult.getInt("Price");
-                    con_date = concertInfoResult.getDate("Con_date");
-                    place = concertInfoResult.getString("Place");
+                    concertName = concertInfoResult.getString(1);
+                    concertPrice = concertInfoResult.getInt(2);
+                    con_date = concertInfoResult.getDate(3);
+                    place = concertInfoResult.getString(4);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -173,7 +173,7 @@
 				// After the reservation -> go to MyPage
 	            if (reservationSuccess) { %>
 	                <div class="section_5" style="text-align: center;">
-	                    <a href="../mypage.html"><button style="padding: 10px 20px; font-size: 16px; background-color: #0078d0; color: #fff; border: none; border-radius: 4px; cursor: pointer; transition: background-color 0.3s;">마이 페이지로 이동</button></a>
+	                    <a href="../mypage.html"><button style="padding: 10px 20px; font-size: 13px; background-color: #0078d0; color: #fff; border: none; border-radius: 4px; cursor: pointer; transition: background-color 0.3s;">메인 페이지로 돌아가기</button></a>
 	                </div>
 	            <% }
 	        } catch (SQLException ex) {

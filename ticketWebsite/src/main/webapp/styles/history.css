@@ -1,0 +1,62 @@
+@charset "EUC-KR";
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+    text-align: center;
+}
+h2 {
+    text-align: center;
+    font-size: 30px;
+    color: #333; 
+    margin-top: 50px;
+}
+table {
+     border-collapse: collapse;
+     width: 70%;
+     margin: 0 auto;
+     background-color: #fff;
+     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+     border: 2px solid #ddd;
+}
+
+th, td {
+     border: 2px solid #dddddd;
+     text-align: center;
+     padding: 8px;
+}
+
+th {
+     background-color: #73685d;
+     font-weight: bold;
+  	 color: #fff;
+}
+
+tr:nth-child(even) {
+     background-color: #f9f9f9;
+}
+
+.history-container {
+     margin: 20px;
+     text-align: center;
+}
+
+
+.back-to-main{
+	text-align: center;
+	margin-bottom: 40px;
+}
+        
+.back-to-main a {
+     text-decoration: none;
+     background-color: #73685d;
+     color: white;
+     padding: 10px 20px;
+     border-radius: 5px;
+     font-size: 13px;
+}
+
+.back-to-main a:hover {
+     background-color: #0056b3;
+}
+

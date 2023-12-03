@@ -1,11 +1,11 @@
-<%@ page import="java.sql.*, java.io.*, java.util.*" %>
+<%@ page import="java.sql.*, java.io.*, java.util.*, java.time.LocalDate" %>
 <%@ page import="com.db.DBManager" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
-    <title>Movie Reservation</title>
+    <title>Movie Event Reservation</title>
     <link rel="stylesheet" href="../styles/musical.css">
 </head>
 <body>
@@ -22,12 +22,12 @@
 	            pstmt = conn.prepareStatement(query);
 	            rs = pstmt.executeQuery();
 	            while (rs.next()) {
-	                int concertID = rs.getInt("Concert_ID");
-	                String concertName = rs.getString("Concert_Name");
-	                java.sql.Date conDate = rs.getDate("Con_date");
-	                java.sql.Date ticStart = rs.getDate("Tic_start");
-	                java.sql.Date ticEnd = rs.getDate("Tic_end");
-	                String place = rs.getString("Place");
+	            	int concertID = rs.getInt(1);
+	                String concertName = rs.getString(2);
+	                java.sql.Date conDate = rs.getDate(3);
+	                java.sql.Date ticStart = rs.getDate(4);
+	                java.sql.Date ticEnd = rs.getDate(5);
+	                String place = rs.getString(6);
 	
 	                // Formatting dates
 	                java.text.SimpleDateFormat dateFormat = new java.text.SimpleDateFormat("dd/MM/yyyy");
@@ -36,31 +36,64 @@
 	                java.text.SimpleDateFormat dateFormat2 = new java.text.SimpleDateFormat("dd/MM");
 	                String formattedTicStart = dateFormat2.format(ticStart);
 	                String formattedTicEnd = dateFormat2.format(ticEnd);
-	    %>
-	    <div class="concert-info">
-		    <div class="concert-details">
-		        <div>
-		            <div class="concert-date">
-		                <%= formattedConDate %>
-		            </div>
-		            <div class="concertName">
-		                <%= concertName %>
-		            </div>
-		        </div>
-		        <div>
-		            <div class="ticket-time">
-		                예매가능: <%= formattedTicStart %> - <%= formattedTicEnd %>
-		            </div>
-		            <div class="place">
-		                <%= place %>
-		            </div>
-		        </div>
-		    </div>
-		    <div class="buy-ticket">
-		        <a href="selectSeat.jsp?concertID=<%= concertID %>">예약하기</a>
-		    </div>
-		</div>
-	    <%
+	                
+	                //check date
+	                LocalDate today = LocalDate.now();
+	                LocalDate ticketStartDate = ticStart.toLocalDate();
+	                LocalDate ticketEndDate = ticEnd.toLocalDate();
+	                if (today.isBefore(ticketStartDate) || today.isAfter(ticketEndDate)) {
+	                	%>
+	                    <div class="concert-info">
+	                        <div class="concert-details">
+	                            <div>
+	                                <div class="concert-date">
+	                                    <%= formattedConDate %>
+	                                </div>
+	                                <div class="concertName">
+	                                    <%= concertName %>
+	                                </div>
+	                            </div>
+	                            <div>
+	                                <div class="ticket-time">
+	                                    예매가능: <%= formattedTicStart %> - <%= formattedTicEnd %>
+	                                </div>
+	                                <div class="place">
+	                                    <%= place %>
+	                                </div>
+	                            </div>
+	                        </div>
+	                        <div class="buy-ticket">
+	                            <span class="impossible-text" style = "color:red; font-size: 12px">예약 불가</span>
+	                        </div>
+	                    </div>
+	                <%
+	                }else{
+	                	%>
+	            	    <div class="concert-info">
+	            		    <div class="concert-details">
+	            		        <div>
+	            		            <div class="concert-date">
+	            		                <%= formattedConDate %>
+	            		            </div>
+	            		            <div class="concertName">
+	            		                <%= concertName %>
+	            		            </div>
+	            		        </div>
+	            		        <div>
+	            		            <div class="ticket-time">
+	            		                예매가능: <%= formattedTicStart %> - <%= formattedTicEnd %>
+	            		            </div>
+	            		            <div class="place">
+	            		                <%= place %>
+	            		            </div>
+	            		        </div>
+	            		    </div>
+	            		    <div class="buy-ticket">
+	            		        <a href="selectSeat.jsp?concertID=<%= concertID %>">예약하기</a>
+	            		    </div>
+	            		</div>
+	            	    <%
+	                }
 	            }
 	        } catch (Exception e) {
 	            e.printStackTrace();

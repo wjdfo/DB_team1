@@ -1,0 +1,44 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.blacklist-container {
+    width: 60%;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    height: auto;
+}
+
+h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+h4 {
+    margin-top: 20px;
+    color: #888;
+}
+
+.back-to-login {
+    margin-top: 30px;
+}
+
+.back-to-login a {
+    text-decoration: none;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.back-to-login a:hover {
+    background-color: #0056b3;
+}

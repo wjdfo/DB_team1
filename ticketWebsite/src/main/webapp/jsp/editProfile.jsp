@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Register</title>
+	<title>Edit Profile</title>
 	<link rel="stylesheet" href="../styles/editProfile.css">
 </head>
 <body>
@@ -29,8 +29,10 @@
 		<option value="concert">concert</option>
 		<option value="concert">musical</option>
 	</select> <br/>
-		<input type="submit" value="회원정보 수정">
-		<input type="button" value="취소" onclick="location.href='../mypage.html'">
+		<div class = "button-container" style ="text-align: center;">
+			<input type="submit" value="회원정보 수정">
+			<input type="button" value="취소" onclick="location.href='../mypage.html'">
+		</div>
 	</form>
 
 
