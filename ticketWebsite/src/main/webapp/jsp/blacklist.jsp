@@ -6,10 +6,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Blacklist</title>
+    <link rel="stylesheet" href="../styles/blacklist.css">
 </head>
 <body>
-	<h2>블랙리스트 정보</h2>
 	<div class = "blacklist-container">
+		<h2>블랙리스트 사용자입니다.</h2>
 		<%
 			Connection conn = null;
 			PreparedStatement pstmt = null;
@@ -36,12 +37,12 @@
 				}
 		%>
 		<br/>
-		<br/>
 		<h4>문의 사항은 admin@admin.com으로 문의해주세요.</h4>
 	
 		<div class = "back-to-login">
-			<a href = "login.jsp">로그인 페이지로 돌아가기</a>
+			<a href = "login.jsp">돌아가기</a>
 		</div>
+		<br/>
 	</div>
 </body>
 </html>

@@ -68,7 +68,7 @@ h3 {
 
     .buy-ticket a {
         font-family: "Open Sans", sans-serif;
-		  font-size: 12px;
+		  font-size: 14px;
 		  letter-spacing: 2px;
 		  text-decoration: none;
 		  text-transform: uppercase;
@@ -86,3 +86,4 @@ h3 {
     .buy-ticket a:hover {
         background-color: #45a049;
     }
+    

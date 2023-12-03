@@ -1,4 +1,4 @@
-<%@ page import="java.sql.*, java.io.*, java.util.*" %>
+<%@ page import="java.sql.*, java.io.*, java.util.*, java.time.LocalDate" %>
 <%@ page import="com.db.DBManager" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
@@ -6,6 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Recommendation</title>
+    <link rel="stylesheet" href="../styles/recommendation.css">
 </head>
 <body>
 	<div class = "Recommendation_container">
@@ -36,6 +37,8 @@
 			
 			out.println("<h4>선호 장르 : "+favor+"</h4>");
 			
+			out.println("<h2>추천 공연 </h2>");
+			
 			sql = "SELECT Concert_Name, tic_start, tic_end, con_date, price, place, concert_ID FROM (SELECT * FROM CONCERT WHERE Genre = '" + favor + "' ORDER BY dbms_random.value) WHERE ROWNUM <= 5";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -52,16 +55,26 @@
 			while(rs.next()){
 				out.println("<tr>");
 				out.println("<td align = \"center\">"+rs.getString(1)+"</td>");
+				java.sql.Date ticStart = rs.getDate(2);
+			    java.sql.Date ticEnd = rs.getDate(3);
 				out.println("<td align = \"center\">"+rs.getString(2).substring(0,10)+"</td>");
 				out.println("<td align = \"center\">"+rs.getString(3).substring(0,10)+"</td>");
 				out.println("<td align = \"center\">"+rs.getString(4).substring(0,10)+"</td>");
 				out.println("<td align = \"center\">"+rs.getString(5)+"</td>");
 				out.println("<td align = \"center\">"+rs.getString(6)+"</td>");
+				 
+	            LocalDate ticketStartDate = ticStart.toLocalDate();
+	            LocalDate ticketEndDate = ticEnd.toLocalDate();
+	            LocalDate today = LocalDate.now();
+	            if (today.isBefore(ticketStartDate) || today.isAfter(ticketEndDate)) {
+	            	out.println("<td align=\"center\" style=\"color: red; font-size: 12px;\">예약 불가</td>");
+                } else {
 	%>
 		<td align = "center">
-			<a href = "selectSeat.jsp?concertID=<%= rs.getString(7) %>">좌석 선택</a>
+			<a href = "selectSeat.jsp?concertID=<%= rs.getString(7) %>" class="button-link">좌석 선택</a>
 		</td>
 	<%
+                }
 				out.println("</tr>");
 			}
 			out.println("</table>");
@@ -72,11 +85,11 @@
 		
 	%>
 		</br>
-		</br>
 		
 		<div class = "back-to-main">
 			<a href = "../mypage.html">메인 페이지로 돌아가기</a>
 		</div>
+		</br>
 	</div>
 </body>
 </html>

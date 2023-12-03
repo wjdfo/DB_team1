@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f2f2f2;
+    text-align: center;
 }
 
 h2 {
@@ -54,3 +55,4 @@ input[type="submit"]:hover,
 input[type="button"]:hover {
     background-color: #065dd8;
 }
+
