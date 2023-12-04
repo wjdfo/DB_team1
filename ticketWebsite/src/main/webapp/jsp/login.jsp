@@ -43,8 +43,12 @@
                         else{
                         	// Login successful -> go to mypage.html
 	                        out.println("<h2>Login Successful!</h2>");
-	                        response.sendRedirect("../mypage.html");
-	                        response.sendRedirect("selectSeat.jsp");
+                        	if (id.compareTo("10000") == 0)
+                        		response.sendRedirect("Admin.jsp");
+                        	else {
+		                        response.sendRedirect("../mypage.html");
+		                        response.sendRedirect("selectSeat.jsp");
+                        	}
                         }
                     } else {
                         // Login failed
