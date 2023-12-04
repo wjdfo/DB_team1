@@ -4,8 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>관리자 페이지</title>
+	<meta charset="UTF-8">
+	<title>Admin Page</title>
+	<link rel="stylesheet" href="../styles/admin.css">
 </head>
 <body>
 	<div class = "admin-container" id = "admin">
@@ -29,7 +30,6 @@
         <select id = "subcategory" name = "sub_option" onchange = "opt()">
         	<option>---세부 옵션 선택---</option>
         </select>
-        </br>
         </br>
         <div id="dynamicInputContainer"></div>
         <input href = "admin_func.jsp" type = "submit">
@@ -125,13 +125,11 @@
             dynamicInputContainer.appendChild(input);
         }
     </script>
-	
-	</br>
-	</br>
-	
-	</div>
+
 	<div class = "back-to-login">
 		<a href = "login.jsp">로그인 페이지로 돌아가기</a>
 	</div>
+	
+	</div>	
 </body>
 </html>

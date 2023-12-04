@@ -4,8 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>Admin Page</title>
+	<link rel="stylesheet" href="../styles/admin_func.css">
 </head>
 <body>
 	<div class = "aggr-container">

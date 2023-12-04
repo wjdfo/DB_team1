@@ -4,8 +4,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Register_check</title>
+	<meta charset="UTF-8">
+	<title>Register_check</title>
+	<script>
+	function showAlertAndRedirect(message, url) {
+        alert(message);
+        window.location.href = url;
+    }
+    </script>
 </head>
 <body>
 	<%!
@@ -90,24 +96,26 @@
             if(input_id == "" || input_name == "" || input_phone == "" || input_addr == "" ||
                input_pw == "" || input_email == "" ||input_age == "" || input_sex == "" ||	
                input_favor == ""){
-            	out.println("공백인 정보가 있습니다. 다시 입력해주세요. <br>");
-            	out.println("<a href=\"register.jsp\"> << 뒤로 돌아가기</a> ");
+            	%>
+                <script>
+                showAlertAndRedirect("공백인 정보가 있습니다. 다시 입력해주세요.", "register.jsp");
+                </script>
+            <% 
             }
             
-            else if(id_check(input_id) == false){
-            	out.println("잘못된 아이디입니다. 1~9999 사이의 숫자만 가능합니다. <br>");
-            	out.println("<a href=\"register.jsp\"> << 뒤로 돌아가기</a> ");
-            }
-            
-            else if(age_check(input_age) == false){
-            	out.println("잘못된 나이입니다. 나이는 숫자만 가능합니다. <br>");
-            	out.println("<a href=\"register.jsp\"> << 뒤로 돌아가기</a> ");
-            }
-            
-            else if(id_dup_check(input_id) == false){
-            	out.println("이미 가입된 아이디입니다. <br>");
-            	out.println("<a href=\"register.jsp\"> << 뒤로 돌아가기</a> ");
-            }
+            else if (id_check(input_id) == false) { %>
+            <script>
+                showAlertAndRedirect("잘못된 아이디입니다. 1~9999 사이의 숫자만 가능합니다.", "register.jsp");
+            </script>
+        <% } else if (age_check(input_age) == false) { %>
+            <script>
+                showAlertAndRedirect("잘못된 나이입니다. 나이는 숫자만 가능합니다.", "register.jsp");
+            </script>
+        <% } else if (id_dup_check(input_id) == false) { %>
+            <script>
+                showAlertAndRedirect("이미 가입된 아이디입니다.", "register.jsp");
+            </script>
+        <% }
             
             else if(id_dup_check(input_id) == true){
             try {

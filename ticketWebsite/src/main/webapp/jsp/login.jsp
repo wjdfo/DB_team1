@@ -47,12 +47,11 @@
                         		response.sendRedirect("Admin.jsp");
                         	else {
 		                        response.sendRedirect("../mypage.html");
-		                        response.sendRedirect("selectSeat.jsp");
                         	}
                         }
                     } else {
                         // Login failed
-                        out.println("<h2>Login Failed. Please input again.</h2>");
+                        out.println("<h2>Login Failed.</h2>");
                     }
                 }
             } catch (Exception e) {
