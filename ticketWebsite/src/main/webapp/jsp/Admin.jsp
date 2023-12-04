@@ -8,14 +8,14 @@
 <title>관리자 페이지</title>
 </head>
 <body>
-	<div class = "admin-container">
+	<div class = "admin-container" id = "admin">
 	<h1>관리자 페이지</h1>
 	<%
 		String id = (String) session.getAttribute("login_id");
 		out.println("<h2>로그인 ID : "+id+"</h2>");
 	%>	
 	</br>
-	<form action = "admin_func.jsp" method = "POST">
+	<form action = "admin_func.jsp" method = "POST" accept-charset = "UTF-8">
         <label for="category">옵션:</label>
         <select id = "category" name = "Opt" onchange = "sub()">
         	<option>---옵션 선택---</option>
@@ -83,7 +83,13 @@
                  createInputField("사용자 ID를 입력하세요 : ");
                  break;
              case "Reason":
-                 createInputField("사유를 입력하세요 (ex)지속적인 취소,티켓 재판매) : ");
+            	 var newH2 = document.createElement('h4');
+            	 var textNode = document.createTextNode('1. 지속적인 취소 2. 티켓 재판매 3. 일치하지 않은 정보 4. 지속적인 불참 5. 가짜 티켓 6. 스팸 또는 과도한 요청');
+            	 newH2.appendChild(textNode);
+            	 var myDiv = document.getElementById('admin');
+				 myDiv.appendChild(newH2);
+            	 createInputField("사유를 고르세요 : ");
+                 
                  break;
              case "Date":
                  createInputField("날짜를 입력하세요(ex)2020-01-01) : ");
@@ -123,9 +129,9 @@
 	</br>
 	</br>
 	
+	</div>
 	<div class = "back-to-login">
 		<a href = "login.jsp">로그인 페이지로 돌아가기</a>
-	</div>
 	</div>
 </body>
 </html>

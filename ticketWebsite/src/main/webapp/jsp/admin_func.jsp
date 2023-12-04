@@ -154,11 +154,12 @@
 				}	
 				else if (request.getParameter("sub_option").compareTo("Reason") == 0){
 					out.println("<h2>블랙리스트 사유 검색</h2>");
+					String[] a = {"지속적인 취소", "티켓 재판매", "일치하지 않은 정보", "지속적인 불참", "가짜 티켓", "스팸 또는 과도한 요청"};
 					opt = request.getParameter("Input");
 					sql = "select c.name, c.sex, c.age, b.reason, b.black_start from blacklist b, customer c where c.customer_id = b.customer_id and b.reason"
 						+ " in (?)";
 					pstmt = conn.prepareStatement(sql);
-					pstmt.setString(1,opt);
+					pstmt.setString(1,a[Integer.valueOf(opt)-1]);
 					rs = pstmt.executeQuery();
 					
 					out.println("<table cellspacing = \"20\">");
@@ -293,10 +294,10 @@
 				out.println("<h3>검색 결과 총 " + temp + "건</h3>");
 			}
 			
-			out.println("</br>"); out.println("</br>");
-			out.println("<a href = \"Admin.jsp\">관리자 페이지</a>");
 		%>
 	</div>
-	
+<div class = "return">
+<a href = "Admin.jsp">관리자 페이지</a>
+</div>
 </body>
 </html>
