@@ -17,7 +17,8 @@
 	</br>
 	<form action = "admin_func.jsp" method = "POST">
         <label for="category">옵션:</label>
-        <select id = "category" onchange = "sub()">
+        <select id = "category" name = "Opt" onchange = "sub()">
+        	<option>---옵션 선택---</option>
         	<option value = "concert">공연 정보 확인</option>
         	<option value = "blacklist">블랙리스트 확인</option>
         	<option value = "customer">고객 정보 확인</option>
@@ -25,10 +26,13 @@
         </br>
         </br>
         <label for="subcategory">세부 옵션1 : </label>
-        <select id = "subcategory" onchange = "opt()"></select>
+        <select id = "subcategory" name = "sub_option" onchange = "opt()">
+        	<option>---세부 옵션 선택---</option>
+        </select>
         </br>
         </br>
         <div id="dynamicInputContainer"></div>
+        <input href = "admin_func.jsp" type = "submit">
     </form>
 
     <script>
@@ -48,15 +52,17 @@
 				break;
 				
 			case "blacklist" :
+				addOption(subcategorySelect, 'temp', '--세부옵션 선택--');
 				addOption(subcategorySelect, 'user_Id', 'ID 검색');
 				addOption(subcategorySelect, 'Reason', '사유 검색');
 				addOption(subcategorySelect, 'Date', '시작 날짜 검색');
 				break;
 				
 			case "customer" :
+				addOption(subcategorySelect, 'temp', '--세부옵션 선택--');
 				addOption(subcategorySelect, 'Name', '사용자 이름 검색');
 				addOption(subcategorySelect, 'His', '구매 내역 검색');
-				addOption(subcategorySelect, 'Aggr', '사용자 구매 내역 집계');
+				addOption(subcategorySelect,'Aggr', '사용자 구매 내역 집계');
 			}
         }
         
@@ -68,45 +74,45 @@
         	
         	 switch (subcategorySelect.value) {
              case "Top":
-                 createInputField("k", "k를 입력하세요 : ");
+                 createInputField("k를 입력하세요 : ");
                  break;
              case "con_Id":
-                 createInputField("Con_ID", "공연 ID를 입력하세요 : ");
+                 createInputField("공연 ID를 입력하세요 : ");
                  break;
              case "user_Id":
-                 createInputField("User_ID", "사용자 ID를 입력하세요 : ");
+                 createInputField("사용자 ID를 입력하세요 : ");
                  break;
              case "Reason":
-                 createInputField("black_reason", "사유를 입력하세요 : ");
+                 createInputField("사유를 입력하세요 (ex)지속적인 취소,티켓 재판매) : ");
                  break;
              case "Date":
-                 createInputField("black_Date", "날짜를 입력하세요(ex)2020-01-01) : ");
+                 createInputField("날짜를 입력하세요(ex)2020-01-01) : ");
                  break;
              case "Name" :
-            	 createInputField("User_Name", "사용자 이름을 입력하세요 : ");
+            	 createInputField("사용자 이름을 입력하세요 : ");
             	 break;
              case "His" :
-            	 createInputField("His_user", "사용자 ID를 입력하세요 : ");
+            	 createInputField("사용자 ID를 입력하세요 : ");
             	 break;
              default:
                  break;
-         }
+         	}
         }
         
         function addOption(selectElement, value, text) {
-            var option = document.createElement("option");
+            var option = document.createElement("option");	
             option.value = value;
             option.text = text;
             selectElement.add(option);
         }
         
-        function createInputField(type, labelText) {
+        function createInputField(labelText) {
             var label = document.createElement("label");
             label.textContent = labelText;
 
             var input = document.createElement("input");
-            input.type = type;
-            input.name = "dynamicInput"; // 여기에 원하는 name 속성 추가
+            input.type = "text";
+            input.name = "Input"; // 여기에 원하는 name 속성 추가
 
             var dynamicInputContainer = document.getElementById("dynamicInputContainer");
             dynamicInputContainer.appendChild(label);
