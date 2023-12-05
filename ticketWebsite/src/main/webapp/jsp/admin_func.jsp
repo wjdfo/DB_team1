@@ -211,7 +211,6 @@
 				if (request.getParameter("sub_option").compareTo("Name") == 0){
 					out.println("<h2>사용자 이름 검색</h2>");
 					opt = request.getParameter("Input");
-					out.println("!!! "+ opt + "!!!");
 					sql = "select * from customer where name LIKE '%"+opt+"%'";
 					pstmt = conn.prepareStatement(sql);	
 					rs = pstmt.executeQuery();
