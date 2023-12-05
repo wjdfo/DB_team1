@@ -18,6 +18,8 @@
 	 	    String sql = null;
 	 	    String opt = null;
 	    	conn = DBManager.getConnection();
+	    	
+	    	request.setCharacterEncoding("UTF-8");
 			
 			if (request.getParameter("Opt").compareTo("concert") == 0){
 				if (request.getParameter("sub_option").compareTo("All") == 0){ //전체 공연 매출 확인
@@ -209,6 +211,7 @@
 				if (request.getParameter("sub_option").compareTo("Name") == 0){
 					out.println("<h2>사용자 이름 검색</h2>");
 					opt = request.getParameter("Input");
+					out.println("!!! "+ opt + "!!!");
 					sql = "select * from customer where name LIKE '%"+opt+"%'";
 					pstmt = conn.prepareStatement(sql);	
 					rs = pstmt.executeQuery();
