@@ -18,6 +18,8 @@
 	 	    String sql = null;
 	 	    String opt = null;
 	    	conn = DBManager.getConnection();
+	    	
+	    	request.setCharacterEncoding("UTF-8");
 			
 			if (request.getParameter("Opt").compareTo("concert") == 0){
 				if (request.getParameter("sub_option").compareTo("All") == 0){ //전체 공연 매출 확인
@@ -229,10 +231,10 @@
 						out.println("<td align = \"center\">"+rs.getString(2)+"</td>");
 						out.println("<td align = \"center\">"+rs.getString(3)+"</td>");
 						out.println("<td align = \"center\">"+rs.getString(4)+"</td>");
-						out.println("<td align = \"center\">"+rs.getString(5)+"</td>");
 						out.println("<td align = \"center\">"+rs.getString(6)+"</td>");
 						out.println("<td align = \"center\">"+rs.getString(7)+"</td>");
 						out.println("<td align = \"center\">"+rs.getString(8)+"</td>");
+						out.println("<td align = \"center\">"+rs.getString(9)+"</td>");
 						i++;
 					}
 				}
