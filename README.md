@@ -18,6 +18,7 @@ KNU comp0322-005
 
 
 2. 실행 방법
+
 •	git clone https://github.com/wjdfo/DB_team1
 
 • src/main/java/com/db/DBManager.java 파일을 열리고 DB_USER / DB_PASSWORD를 설치된 데이타베이스의 이름/비밀번호로 바꾸기
